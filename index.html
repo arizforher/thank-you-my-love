@@ -191,7 +191,7 @@
   <div id="falling-hearts"></div>
 
   <!-- YouTube Music (Audio Only) -->
-  <audio hidden autoplay loop>
+  <audio id="bg-music" hidden autoplay loop>
     <source src="./audio.mp3" type="audio/mpeg">
   </audio>
 
@@ -220,6 +220,17 @@
     function showSurprise() {
       alert("Chal chal surprise janengi. Please wait bas kal aajyga. I love you endlessly! ❤️");
     }
+
+	document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("bg-music");
+
+      function playAudio() {
+        audio.play().catch(error => console.log("Autoplay blocked:", error));
+        document.removeEventListener("click", playAudio);
+      }
+
+  		document.addEventListener("click", playAudio);
+	});
 	
     
     
