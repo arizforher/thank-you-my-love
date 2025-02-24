@@ -22,8 +22,7 @@
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 90%;
-      width: 500px;
+      max-width: 500px;
       animation: fadeIn 2s ease-in-out;
       position: relative;
       z-index: 1;
@@ -46,12 +45,13 @@
       animation: beat 1s infinite, float 3s ease-in-out infinite;
     }
     .image {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       margin: 20px auto;
       border: 5px solid #e74c3c;
+      animation: float 3s ease-in-out infinite;
       display: flex;
       overflow: hidden;
     }
@@ -89,23 +89,41 @@
       0% { transform: translateY(-50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
-    /* Responsive Design */
-    @media (max-width: 600px) {
+    /* Hide YouTube Video */
+    #youtube-music {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+	@media (max-width: 600px) {
       .container {
-        padding: 20px;
+        padding: 12px;
+        width: 70%;
       }
       h1 {
-        font-size: 2em;
+        font-size: 1em;
       }
       p {
-        font-size: 1em;
+        font-size: 0.5em;
       }
       .image {
         width: 80px;
         height: 80px;
+        transform: scale(1.5);
       }
       .heart {
-        font-size: 2.5em;
+        font-size: 1em;
+      }
+      .button {
+      	padding: 6px 12px;
+        font-size: 0.5em;
+        margin-top: 12px;
+      }
+	  .image iframe {
+        transform: scale(1.6);
       }
     }
   </style>
@@ -114,7 +132,7 @@
   <div class="container">
     <h1>Thank You, My Love ❤️</h1>
     <div class="image">
-        <iframe src="https://drive.google.com/file/d/1jsMIndBv45L20W-LKUSwwvE1uRIry183/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1jsMIndBv45L20W-LKUSwwvE1uRIry183/preview" width="640" height="480" allow="autoplay"></iframe>
     </div>
     <p>
       My dearest kuchuu my sunshine,<br>
@@ -130,10 +148,61 @@
     <div class="heart">❤️</div>
     <button class="button" onclick="showSurprise()">Click to know about tomorrow's surprise!</button>
   </div>
+
+  <!-- Falling Hearts Animation -->
+  <div id="falling-hearts"></div>
+
+  <!-- YouTube Music (Audio Only) -->
+  <iframe
+    id="youtube-music"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1&controls=0&disablekb=1&loop=1&playlist=ASduyAUQzdM"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+  ></iframe>
+
   <script>
+    // Falling Hearts Animation
+    const fallingHeartsContainer = document.getElementById('falling-hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.classList.add('falling-heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.opacity = Math.random();
+      fallingHeartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Surprise Button
     function showSurprise() {
       alert("Chal chal surprise janengi. Please wait bas kal aajyga. I love you endlessly! ❤️");
     }
   </script>
+
+  <style>
+    .falling-heart {
+      position: fixed;
+      top: -10vh;
+      color: #e74c3c;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
 </body>
 </html>
