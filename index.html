@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You, My Love</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      color: #e74c3c;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      animation: slideIn 1.5s ease-out;
+    }
+    p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.6;
+      animation: fadeIn 3s ease-in;
+    }
+    .heart {
+      color: #e74c3c;
+      font-size: 3em;
+      animation: beat 1s infinite, float 3s ease-in-out infinite;
+    }
+    .image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px auto;
+      border: 5px solid #e74c3c;
+      animation: float 3s ease-in-out infinite;
+      display: flex;
+      overflow: hidden;
+    }
+    .image iframe {
+        width: 100%;
+        height: 100%;
+    }
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background: #e74c3c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #c0392b;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes slideIn {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    /* Hide YouTube Video */
+    #youtube-music {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You, My Love ❤️</h1>
+    <div class="image">
+        <iframe src="https://drive.google.com/file/d/1jsMIndBv45L20W-LKUSwwvE1uRIry183/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <p>
+      My dearest kuchuu my sunshine,<br>
+      I want to take a moment to thank you for loving me so deeply and standing by my side, even when I’m hard to handle. Your patience, kindness, and unwavering support mean the world to me. I’m so grateful to have you in my life.
+    </p>
+    <p>
+      You are my rock, my joy, and my everything. I love you more than words can express.
+    </p>
+    <p>
+      Forever yours,<br>
+      Ariz
+    </p>
+    <div class="heart">❤️</div>
+    <button class="button" onclick="showSurprise()">Click to know about tomorrow's surprise!</button>
+  </div>
+
+  <!-- Falling Hearts Animation -->
+  <div id="falling-hearts"></div>
+
+  <!-- YouTube Music (Audio Only) -->
+  <iframe
+    id="youtube-music"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1&controls=0&disablekb=1&loop=1&playlist=ASduyAUQzdM"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+  ></iframe>
+
+  <script>
+    // Falling Hearts Animation
+    const fallingHeartsContainer = document.getElementById('falling-hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.classList.add('falling-heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.opacity = Math.random();
+      fallingHeartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Surprise Button
+    function showSurprise() {
+      alert("Chal chal surprise janengi. Please wait bas kal aajyga. I love you endlessly! ❤️");
+    }
+  </script>
+
+  <style>
+    .falling-heart {
+      position: fixed;
+      top: -10vh;
+      color: #e74c3c;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</body>
+</html>
