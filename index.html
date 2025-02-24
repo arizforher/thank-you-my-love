@@ -221,16 +221,22 @@
       alert("Chal chal surprise janengi. Please wait bas kal aajyga. I love you endlessly! ❤️");
     }
 
-	document.addEventListener("DOMContentLoaded", function () {
-      const audio = document.getElementById("bg-music");
+	 document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
 
-      function playAudio() {
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-        document.removeEventListener("click", playAudio);
-      }
+        function playAudio() {
+          setTimeout(() => {
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
+          }, 1000); // Delays play slightly to bypass restrictions
+          document.removeEventListener("click", playAudio);
+          document.removeEventListener("scroll", playAudio);
+          document.removeEventListener("keypress", playAudio);
+        }
 
-  		document.addEventListener("click", playAudio);
-	});
+        document.addEventListener("click", playAudio);
+        document.addEventListener("scroll", playAudio);
+        document.addEventListener("keypress", playAudio);
+  	});
 	
     
     
