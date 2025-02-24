@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <title>Thank You, My Love</title>
   <style>
+  	* {
+    	margin: 0;
+        padding: 0;
+    }
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'poppins', sans-serif;
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -26,6 +33,7 @@
       animation: fadeIn 2s ease-in-out;
       position: relative;
       z-index: 1;
+      text-align: left;
     }
     h1 {
       color: #e74c3c;
@@ -71,6 +79,15 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+    p {
+    font-weight: 200;
+    }
+    p span {
+    font-weight: 700;
+
+    
+    }
+    
     .button:hover {
       background: #c0392b;
     }
@@ -103,13 +120,26 @@
       .container {
         padding: 12px;
         width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
       h1 {
-        font-size: 1em;
+        text-align: center;
+        font-size: 18px;
       }
-      p {
-        font-size: 0.5em;
-      }
+      .starting {
+      	font-size: 14px;
+        font-weight: 500;
+		}
+       .starting.ending {
+		font-weight: 500;
+        align-self: flex-start;
+		}
+      .content {
+    	font-size: 12px;
+     }
       .image {
         width: 80px;
         height: 80px;
@@ -122,9 +152,16 @@
       	padding: 6px 12px;
         font-size: 0.5em;
         margin-top: 12px;
+        
       }
 	  .image iframe {
         transform: scale(1.6);
+      }
+      .content.margin {
+      	margin-top: 12px;
+      }
+      .starting.ending.margin {
+      	margin-top: 4px;
       }
     }
   </style>
@@ -135,16 +172,16 @@
     <div class="image">
         <image src="./IMG_1245.jpg" />
     </div>
-    <p>
-      My dearest kuchuu my sunshine,<br>
+    <p class="content">
+      <span class="starting">My dearest kuchuu my sunshine,</span><br>
       I want to take a moment to thank you for loving me so deeply and standing by my side, even when I’m hard to handle. Your patience, kindness, and unwavering support mean the world to me. I’m so grateful to have you in my life.
     </p>
-    <p>
+    <p class="content margin">
       You are my rock, my joy, and my everything. I love you more than words can express.
     </p>
-    <p>
+    <p class="starting ending margin">
       Forever yours,<br>
-      Ariz
+      <span><i>Ariz</i></span>
     </p>
     <div class="heart">❤️</div>
     <button class="button" onclick="showSurprise()">Click to know about tomorrow's surprise!</button>
